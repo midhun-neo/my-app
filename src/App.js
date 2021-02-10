@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import HomePage from "./components/HomePage"
 import Nav from "./components/Nav"
 import About from "./components/About"
+import Products from "./components/Products"
 import Shop from "./components/Shop"
 import ContactUs from "./components/Contactus"
 import ItemDetails from "./components/ItemDetails"
@@ -18,11 +19,12 @@ function App() {
     <Router>  
           <Nav />
           <Switch>
-            <Route path="/" exact component={HomePage} />
-            <Route path="/about" component={About} />
-            <Route path="/shop" exact component={Shop} />
-        <Route path="/shop/:id" component={ItemDetails} />
-        <Route path="/contact" component={ContactUs} />
+          <Route path="/" exact component={HomePage} />
+          <Route path="/about" component={About} />
+          <Route path="/products" exact component={Products} />    
+          <Route path="/shop" exact component={Shop} />
+          <Route path="/shop/:id" component={ItemDetails} />
+          <Route path="/contact" component={ContactUs} />
       </Switch>
       <Footer/>
     </Router>

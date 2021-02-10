@@ -5,15 +5,6 @@ import Grid from '@material-ui/core/Grid'
 import ItemCard from "./ItemCard"
 
 
-
-{/* <div>
-<div className={classes.root}>
-    <Grid container spacing={3}>                
-            {drinks}                     
-    </Grid>    
-</div>    
-</div> */}
-
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,        
