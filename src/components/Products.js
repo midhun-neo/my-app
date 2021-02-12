@@ -40,23 +40,25 @@ export default function Products() {
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
+            <TableCell align="right">Image</TableCell>
             <TableCell>Drink Name</TableCell>
             <TableCell align="right">Type</TableCell>
             <TableCell align="right">Category</TableCell>
             <TableCell align="right">Glass Type</TableCell>
-            <TableCell align="right">Image</TableCell>
+            
           </TableRow>
         </TableHead>
         <TableBody>
           {items.map((row) => (
             <TableRow key={row.idDrink}>
+              <TableCell align="right"><img className={classes.thumb} src={row.strDrinkThumb} alt={row.strDrink} /></TableCell>
               <TableCell component="th" scope="row">
                 {row.strDrink}
               </TableCell>
               <TableCell align="right">{row.strAlcoholic}</TableCell>
               <TableCell align="right">{row.strCategory}</TableCell>
               <TableCell align="right">{row.strGlass}</TableCell>
-                  <TableCell align="right"><img className={classes.thumb} src={row.strDrinkThumb} alt={row.strDrink}/></TableCell>
+                  
             </TableRow>
           ))}
         </TableBody>

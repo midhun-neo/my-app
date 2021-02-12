@@ -3,11 +3,15 @@ import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
 import ItemCard from "./ItemCard"
+import Pagination from '@material-ui/lab/Pagination';
 
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        flexGrow: 1,        
+        flexGrow: 1,   
+        '& > *': {
+            marginTop: theme.spacing(2),
+        }    
     },
     paper: {
       padding: theme.spacing(2),
@@ -27,7 +31,9 @@ function Shop() {
     
     const classes = useStyles();
 
-    const [items,setItems] = useState([])
+    const [items, setItems] = useState([])
+    
+
     const fetchItems = async () => { 
         const data = await fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita")
         const items = await data.json()
@@ -40,14 +46,21 @@ function Shop() {
     return (   
             <Container className={classes.cardGrid} maxWidth="md">
                 <Grid container spacing={4}>
-                {items.map((item) => (
-                    <Grid item key={item.idDrink} xs={12} sm={6} md={4}>
-                    <ItemCard item={item} />
-                    </Grid>
-                ))}
+                    {items.map((item) => (
+                        <Grid item key={item.idDrink} xs={12} sm={6} md={4}>
+                        <ItemCard item={item} />
+                        </Grid>
+                    ))}
                 </Grid>
-            </Container>
-        
+                <Grid container spacing={4} >
+                    <div className={classes.root}>
+                        <Pagination count={10} />
+                        <Pagination count={10} color="primary" />
+                        <Pagination count={10} color="secondary" />
+                        <Pagination count={10} disabled />
+                    </div>
+                </Grid>
+            </Container>       
         
     )
 }
